@@ -1,0 +1,73 @@
+version: '3.9'
+
+# Define services
+services:
+
+  appointments-api:
+    build:
+      context: .
+      dockerfile: appointments.Dockerfile
+    ports:
+      - "8081:8081"
+    restart: always
+    networks:
+      - backend
+
+  doctor-api:
+    build:
+      context: .
+      dockerfile: doctor-api.Dockerfile
+    ports:
+      - "8082:8082"
+    restart: always
+    networks:
+      - backend
+
+  patient-api:
+    build:
+      context: .
+      dockerfile: patient-api.Dockerfile
+    ports:
+      - "8083:8083"
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+
+#    links:
+#      - service-b
+#      - service-c
+#    environment:
+#      - "spring.profiles.active=prod"
+#      - "serviceb.url=http://service-b:8082"
+#      - "servicec.url=http://service-c:8083"
+#    networks:
+#      - backend
+
+#  # Service B
+#  service-b:
+#    image: $DOCKER_USER_NAME$/spring-multi-module-service-service-b
+#    ports:
+#      - "8082:8080"
+#    restart: always
+#    environment:
+#      - "spring.profiles.active=prod"
+#    networks:
+#      - backend
+#
+#  # Service C
+#  service-c:
+#    image: $DOCKER_USER_NAME$/spring-multi-module-service-service-c
+#    ports:
+#      - "8083:8080"
+#    restart: always
+#    environment:
+#      - "spring.profiles.active=prod"
+#    networks:
+#      - backend
+#
+## Networks to be created to facilitate communication between containers
+#networks:
+#  backend:
