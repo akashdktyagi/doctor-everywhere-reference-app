@@ -10,10 +10,8 @@ import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-
 import java.net.URI;
 import java.util.Map;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,7 +30,6 @@ public class StepDefs {
     MockMvc mockMvc;
 
     Patient patient;
-
 
     @Given("I have patient details as below")
     public void i_have_patient_details_as_below(Map<String,String> data) throws JsonProcessingException {
@@ -87,6 +84,7 @@ public class StepDefs {
 
         );
     }
+
     @When("I get the patient with email as {string}")
     public void i_get_the_patient_with_email_as(String email) throws Exception {
         resultsAction = mockMvc.perform(
@@ -95,6 +93,7 @@ public class StepDefs {
                         .content(body)
         );
     }
+
     @Then("patient details with email as {string} is returned")
     public void patient_details_with_email_as_is_returned(String email) throws Exception {
         resultsAction.andExpect(status().is(200));
@@ -125,6 +124,7 @@ public class StepDefs {
         resultsAction = mockMvc.perform(
                 delete(URI.create(server + deleteEndPoint+"?email="+email)));
     }
+
     @Then("patient with email as {string} is deleted")
     public void patient_with_email_as_is_deleted(String email) throws Exception {
         resultsAction.andExpect(status().is(200));
@@ -132,5 +132,4 @@ public class StepDefs {
         String responseString = resultsAction.andReturn().getResponse().getContentAsString();
         Assertions.assertThat(responseString).doesNotContain(email);
     }
-
 }

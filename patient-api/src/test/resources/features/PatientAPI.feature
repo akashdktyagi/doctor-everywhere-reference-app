@@ -1,5 +1,7 @@
+@issue:DE-1
 Feature: As a user, I am able to create, delete, update and get the patient details
 
+  @xrayTest:DE-2
   Scenario: As a client, I am able to create a new patient
     Given I have patient details as below
       | name              | akash                  |
