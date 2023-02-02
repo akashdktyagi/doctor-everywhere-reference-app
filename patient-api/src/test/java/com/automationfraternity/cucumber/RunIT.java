@@ -10,11 +10,11 @@ import org.junit.runner.RunWith;
                 "classpath:features"
         },
         glue = {
-                "com.automationfraternity",
-
+                "com.automationfraternity"
         },
         tags = "",
         plugin = {"pretty",
+                "com.bjb.xray.listener.XRayListener",
                 "html:target/cucumber-reports/cucumber.html",
                 "json:target/cucumber-reports/cucumber.json",
         }

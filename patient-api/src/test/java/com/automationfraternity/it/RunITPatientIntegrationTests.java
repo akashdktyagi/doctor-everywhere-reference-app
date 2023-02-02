@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class RunITPatientIntegrationTests {
 
-    String server = "http://localhost:9096";
+    String server = "http://localhost:8082";
     String postEndPoint = "/patient";
     String getEndPoint = "/patient";
     String putEndPoint = "/patient";
