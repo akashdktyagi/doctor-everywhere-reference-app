@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .mvcMatchers(HttpMethod.GET,"/swagger-ui/*").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/v3/api-docs").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/v3/api-docs/*").permitAll()
-                .mvcMatchers(HttpMethod.GET,"/patient/*").authenticated()
+                .mvcMatchers(HttpMethod.GET,"/patient/*").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/patient").permitAll()
 
                 .mvcMatchers(HttpMethod.POST,"/patient").authenticated()
