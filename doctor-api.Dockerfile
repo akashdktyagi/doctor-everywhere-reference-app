@@ -19,7 +19,7 @@ FROM gcr.io/distroless/java:${JDK_VERSION}
 
 #COPY --from=MAVEN_TOOL_CHAIN_CACHE --chown=nonroot:nonroot /build/target/ /
 COPY --from=MAVEN_TOOL_CHAIN_CACHE /build/doctor-api/target/ /
-EXPOSE 8080
+EXPOSE 8082
 
 ENV _JAVA_OPTIONS "-XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=90.0 \
 -Djava.security.egd=file:/dev/./urandom \
