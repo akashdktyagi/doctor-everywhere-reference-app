@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .mvcMatchers(HttpMethod.PUT,"/patient/*").authenticated()
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
+               .httpBasic();
     }
 
     @Autowired
