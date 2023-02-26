@@ -1,4 +1,4 @@
-package com.automationfraternity;
+package com.automationfraternity.model;
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ public class AppointmentEntity {
     Long id;
     String bookingDateTime;
     String appointmentDateTime;
-    String patientName;
-    String doctorName;
+    String patientEmail;
+    String doctorEmail;
     String clinicName;
 }

@@ -27,7 +27,7 @@ public class PatientRestController {
         return patientService.getPatient();
     }
 
-    @GetMapping("/patient/{email}")
+    @GetMapping("/patient/searchByEmail")
     @ResponseStatus(code = HttpStatus.OK)
     public List<Patient> getPatientByEmail(@RequestParam String email){
         return patientService.getPatient(email);
@@ -44,6 +44,17 @@ public class PatientRestController {
     @Transactional
     public void deletePatient(@RequestParam String email){
         patientService.deletePatient(email);
+    }
+
+    @PostMapping("/init_db")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void initDB(){
+        Patient patient = Patient.builder().withName("Akash").withAge("89").withEmail("akash@akash.com").withPhone("123456").withMedicalConditions("any").build();
+        Patient patient1 = Patient.builder().withName("Amit").withAge("67").withEmail("amit@amit.com").withPhone("234245").withMedicalConditions("any").build();
+        Patient patient2 = Patient.builder().withName("Sumit").withAge("81").withEmail("sumit@sumit.com").withPhone("6576654").withMedicalConditions("any").build();
+        createPatient(patient);
+        createPatient(patient1);
+        createPatient(patient2);
     }
 
 }

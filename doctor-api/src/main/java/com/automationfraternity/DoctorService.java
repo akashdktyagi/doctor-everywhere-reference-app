@@ -45,8 +45,8 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
-    public List<Doctor> getDoctorListByName(String name){
-        return doctorRepository.findByName(name);
+    public List<Doctor> getDoctorListByEmail(String name){
+        return doctorRepository.findByEmailID(name);
     }
 
     public Optional<Doctor> getDoctorListByRegistrationID(String id){

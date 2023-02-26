@@ -1,5 +1,8 @@
 package com.automationfraternity;
 
+import com.automationfraternity.exceptions.DoctorNotFoundException;
+import com.automationfraternity.exceptions.PatientNotFoundException;
+import com.automationfraternity.model.AppointmentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +20,7 @@ public class AppointmentController {
     }
 
     @PostMapping("/appointment")
-    public AppointmentEntity createAppointment(@RequestBody AppointmentEntity entity){
+    public AppointmentEntity createAppointment(@RequestBody AppointmentEntity entity) throws PatientNotFoundException, DoctorNotFoundException {
         return service.createNewAppointment(entity);
     }
 

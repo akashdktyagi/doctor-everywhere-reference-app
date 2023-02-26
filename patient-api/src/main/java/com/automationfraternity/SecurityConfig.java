@@ -22,11 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .mvcMatchers(HttpMethod.GET,"/v3/api-docs/*").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/patient/*").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/patient").permitAll()
+                .mvcMatchers(HttpMethod.POST,"/init_db").permitAll()
 
                 .mvcMatchers(HttpMethod.POST,"/patient").authenticated()
                 .mvcMatchers(HttpMethod.DELETE,"/patient/*").authenticated()
                 .mvcMatchers(HttpMethod.PUT,"/patient/*").authenticated()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
                 .and()
                .httpBasic();
     }

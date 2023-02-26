@@ -37,14 +37,24 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
-    @GetMapping("/doctors/{name}")
-    public List<Doctor> getDoctorListByName(@PathVariable String name){
-        return doctorService.getDoctorListByName(name);
+    @GetMapping("/doctors/searchByEmail")
+    public List<Doctor> getDoctorListByEmail(@RequestParam String email){
+        return doctorService.getDoctorListByEmail(email);
     }
 
     @GetMapping("/doctors/{registrationID}")
     public Optional<Doctor> getDoctorListByRegistrationID(@PathVariable String registrationID){
         return doctorService.getDoctorListByRegistrationID(registrationID);
+    }
+
+    @PostMapping("/init_db")
+    public void initDB(){
+        Doctor doctor = Doctor.builder().withName("Dr Corsin").withIsDoctorAvailable(true).withEmailID("corsin@corsin.com").withCanDoHomeVisit(true).withClinicNameAndAddress("any").withExperienceInYears(20).withQualifications("MD").withSpecialization("Ortho").withRegistrationID("MR1234").build();
+        Doctor doctor1 = Doctor.builder().withName("Dr Carola").withIsDoctorAvailable(true).withEmailID("carola@carola.com").withCanDoHomeVisit(true).withClinicNameAndAddress("any").withExperienceInYears(30).withQualifications("MBBS").withSpecialization("Gyn-OBS").withRegistrationID("MR3456").build();
+        Doctor doctor2 = Doctor.builder().withName("Dr Jamil").withIsDoctorAvailable(false).withEmailID("jamil@jamil.com").withCanDoHomeVisit(true).withClinicNameAndAddress("any").withExperienceInYears(15).withQualifications("MBBS").withSpecialization("Neuro").withRegistrationID("MR8967").build();
+        createDoctor(doctor);
+        createDoctor(doctor1);
+        createDoctor(doctor2);
     }
 
 }

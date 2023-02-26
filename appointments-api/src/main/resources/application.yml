@@ -1,6 +1,15 @@
 server:
   port: '8081'
 
+externals:
+  apis:
+    doctor-api:
+      host: "http://localhost"
+      port: "8082"
+    patient-api:
+      host: "http://localhost"
+      port: "8083"
+
 spring:
   h2:
     console.enabled: true

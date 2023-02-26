@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IDoctorRepository extends JpaRepository<Doctor, Long> {
-    List<Doctor> findByName(String name);
+    List<Doctor> findByEmailID(String emailID);
     Optional<Doctor> findByRegistrationID(String registrationID);
     void deleteByRegistrationID(String registrationID);
 }
