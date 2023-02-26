@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.DayOfWeek;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,4 +37,9 @@ public class Doctor {
     String clinicNameAndAddress;
     @Column(nullable = false)
     Boolean canDoHomeVisit;
+    @Column(nullable = false)
+    Boolean isDoctorAvailable;
+
+
+
 }
