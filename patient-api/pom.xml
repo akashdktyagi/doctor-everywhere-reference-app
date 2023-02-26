@@ -24,4 +24,31 @@
 
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.bjb.testautomation</groupId>
+            <artifactId>jira-xray-reporting-interface</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>platform-platform</id>
+            <url>https://platform-platform.maven.pkg.sehlat.io</url>
+        </repository>
+
+        <repository>
+            <id>platform</id>
+            <url>https://platform.maven.pkg.sehlat.io</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>platform</id>
+            <url>https://platform.maven.pkg.sehlat.io</url>
+        </repository>
+    </distributionManagement>
+
 </project>
